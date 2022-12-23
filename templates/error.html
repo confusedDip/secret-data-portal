@@ -82,7 +82,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="static/styles/index.css" rel="stylesheet">
+    <link href="/static/styles/index.css" rel="stylesheet">
   </head>
 
 
@@ -94,7 +94,7 @@
           <h3 class="float-md-start mb-0">Authorization Portal</h3>
           <nav class="nav nav-masthead justify-content-center float-md-end">
             <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="/">Home</a>
-            <a class="nav-link fw-bold py-1 px-0 active" href="#" target="_blank">Log In</a>
+            <a class="nav-link fw-bold py-1 px-0 active" href="#">Log In</a>
           </nav>
         </div>
       </header>
@@ -102,49 +102,20 @@
       <main class="px-3">
 
         <div class="step1">
-          <h1>Step 1: Generate "Native App Authorization Code"</h1>
+          <h1>Error: {{error_name}}</h1>
           <p class="lead">
-            The button below will redirect you to the external webpage for authorization purpose.
-            Please return to this webpage once you have generated the Temporary Authorization Code.
+            {{error_desc}}
           </p>
           <p class="lead">
             <a
-                    href="/auth" target="_blank"
+                    href="/login"
                     class="btn btn-lg btn-secondary fw-bold border-white bg-white"
             >
-              Generate Code
+              Try Again
             </a>
           </p>
         </div>
 
-        <div class="step2">
-
-          <h1>Step 2: Generate "Access Token"</h1>
-
-          <p class="lead">
-            Please copy and paste the generated Temporary Authorization Code in the box below.
-            Authorization codes are valid for 10 minutes only.
-          </p>
-
-          <form method="post" action="/auth">
-
-            <p class="lead">
-              <div class="form-group">
-                <input type="text" class="form-control" id="auth_code" placeholder="Native App Authorization Code" name="auth_code">
-              </div>
-            </p>
-
-            <p class="lead">
-              <button
-                    class="btn btn-lg btn-secondary fw-bold border-white bg-white"
-                    type="submit"
-              >
-                Generate Access Token
-              </button>
-            </p>
-
-          </form>
-        </div>
 
       </main>
 
