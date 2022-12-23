@@ -10,9 +10,9 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
 
-    
 
-    
+
+
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -80,34 +80,53 @@
       }
     </style>
 
-    
+
     <!-- Custom styles for this template -->
-    <link href="static/styles/index.css" rel="stylesheet">
+    <link href="/static/styles/index.css" rel="stylesheet">
   </head>
 
 
   <body class="d-flex h-100 text-center text-bg-dark">
-    
+
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header class="mb-auto">
         <div>
           <h3 class="float-md-start mb-0">Secret Data Portal</h3>
           <nav class="nav nav-masthead justify-content-center float-md-end">
             <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
-            <a class="nav-link fw-bold py-1 px-0" href="/login">Login</a>
+            <a class="nav-link fw-bold py-1 px-0" href="/logout">Log Out</a>
           </nav>
         </div>
       </header>
 
       <main class="px-3">
         <h1>Secret Data Portal</h1>
-        <p class="lead">This is a repository of different secret data available across the internet, can be utilized for research purposes.</p>
+        <p class="lead">Congratulations, {{ session['name'] }}! <br>You've successfully passed through the authentication process!</p>
+        <p class="lead">
+          Logged in as:
+          <table class="table table-dark">
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td>{{ session['name'] }}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>{{ session['email']}}</td>
+              </tr>
+              <tr>
+                <td>Institution</td>
+                <td>{{ session['institution'] }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
         <p class="lead">
           <a
-                  href="/login"
+                  href="/logout"
                   class="btn btn-lg btn-secondary fw-bold border-white bg-white"
           >
-            Log In Now
+            Log Out
           </a>
         </p>
       </main>
@@ -118,6 +137,6 @@
     </div>
 
 
-    
+
   </body>
 </html>
